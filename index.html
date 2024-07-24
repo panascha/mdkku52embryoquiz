@@ -173,11 +173,517 @@
 
 <script>
     $(document).ready(function () {
-        var questions = [
+        var questions50 = [
+            {
+                problem: "Which of the following cells is found in immature testis?",
+                choices: "Primordial germ cell/Prospermatogonia/Primary spermatocyte/Secondary spermatocyte/Round spermatocyte",
+                answer: "Prospermatogonia",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is the major event of spermatogonia phase in spermatogenesis?",
+                choices: "Migration and division of primordial germ cell/Replication of spermatogonia’s DNA/Transformation of A dark to A pale spermatogonia/Division of primary spermatocyte/Degeneration of A long spermatogonia",
+                answer: "Migration and division of primordial germ cell",
+                select: "",
+                state: false
+            },
+            {
+                problem: "How many “chromatid numbers” are present in primary spermatocyte?",
+                choices: "23/46/69/92/115",
+                answer: "92",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following stages of cell division shows crossing over and DNA recombination in primary spermatocyte?",
+                choices: "Leptotene/Zygotene/Pachytene/Diplotene/Diakinesis",
+                answer: "Pachytene",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following contains “23 sister chromatids”?",
+                choices: "Secondary spermatocyte/Round spermatid/Elongating spermatid/Elongated spermatid/Testicular sperm",
+                answer: "Secondary spermatocyte",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is the important function of golgi body in round spermatid?",
+                choices: "-/-/- /To form acrosome/-",
+                answer: "To form acrosome",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following is the cell division stage of oocyte after birth?",
+                choices: "Leptotene/Zygotene/Pachytene/Diplotene/Dictyate",
+                answer: "Dictyate",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What will happen within adult ovary after LH surge 15 hours?",
+                choices: "Forming ZP in primary oocyte/Forming GV in primary oocyte/GVBD in primary oocyte/Egg activation and zona pellucida reaction/Metaphase II arrest in secondary oocyte",
+                answer: "GVBD in primary oocyte",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is the similarity between secondary oocyte and first polar body?",
+                choices: "Having 46 sister chromatids/Containing 23 sister chromatids/Containing 23 single chromatids/Equal cytokinesis/Having its own zona pellucida",
+                answer: "Containing 23 sister chromatids",
+                select: "",
+                state: false
+            },
+            {
+                problem: "If we see three polar bodies within perivitelline space, what does it mean?",
+                choices: "Metaphase II arrested/Each polar body has 23 sister chromatids/Completion of meiosis I/Completion of oogenesis/Unfertilized egg",
+                answer: "Completion of oogenesis",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What important structure mediate the process of sperm-specific and egg reaction?",
+                choices: "ZP1/ZP2/ZP3/Cortical granules/Hyaluronidase",
+                answer: "ZP3",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is the characteristic of Meiosis II oocyte?",
+                choices: "Showing GV/Presence of first polar body/No polar body and GVBD/Located in preovulatory follicle/Releasing cortical granules",
+                answer: "Presence of first polar body",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is the process of sperm capacitation?",
+                choices: "Absorption of decapacitation  /Cholesterol efflux/Cholesterol influx  /Decreased membrane fluidity  /Reduction of cAMP",
+                answer: "Cholesterol efflux",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following enzyme is important to sperm-cumulus penetration?",
+                choices: "Hyaluronidase/Acrosin/Proacrosin/Phosphatase/Galactosidase",
+                answer: "Hyaluronidase",
+                select: "",
+                state: false
+            },
+            {
+                problem: "ZP induction and Ca influx is the initial of which of the processes?",
+                choices: "Sperm-oocyte membrane binding/Sperm-oocyte membrane fusing/Outer and inner acrosomal membrane/ZP reaction/Acrosome reaction",
+                answer: "Acrosome reaction",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following is the result of egg activation?",
+                choices: "Decrease of cytoplasmic calcium level/Inhibition of meiosis II/Zona reaction/Zona tearing/Degeneration of second polar body",
+                answer: "Zona reaction",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following techniques is grouped as an IVF technology?",
+                choices: "IUI/ICI    /GIFT   /ICSI    /Ovulation induction",
+                answer: "ICSI    ",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is the primary procedure for Infertile men who have vas deferens blockage?",
+                choices: "Donated sperm/Percutaneous Epididymal Sperm Aspiration/Testicular sperm extraction/Testicular spermatid extraction/Testicular spermatogonia extraction",
+                answer: "Percutaneous Epididymal Sperm Aspiration",
+                select: "",
+                state: false
+            },
+            {
+                problem: "An infertile woman cannot provide her own oocytes to perform IVF-ET technology due to advanced age and diminished ovarian reserve, which of the following is a possible choice to be the intended mother with her husband?",
+                choices: "Using donated egg/FSH stimulation/LH surge induction/Primordial follicle aspiration and culturing/Primordial oocyte aspiration and culturing",
+                answer: "Using donated egg",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following cells invade the endometrial connective tissue?",
+                choices: "Epiblast/Hypoblast/Inner cell mass/Cytotrophoblast/Syncytiotrophoblast",
+                answer: "Syncytiotrophoblast",
+                select: "",
+                state: false
+            },
+            {
+                problem: "A 18-year-old went to hospital with severe abdominal pain. Diagnosis is ectopic pregnancy. Where is it?",
+                choices: "-/-/- /Ampulla/-",
+                answer: "Ampulla",
+                select: "",
+                state: false
+            },
+            {
+                problem: "When does the blastocyst attach to the endometrial epithelium after fertilization?",
+                choices: "2 days/3 days/4 days/5 days/6 days",
+                answer: "6 days",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following structures will develop into the embryo?",
+                choices: "Amnioblast/Inner cell mass/Cytotrophoblast/Syncytiotrophoblast/Secondary yolk sac",
+                answer: "Inner cell mass",
+                select: "",
+                state: false
+            },
+            {
+                problem: "After blastocyst implants in the endometrium, which developmental process transforms bilaminar to trilaminar embryonic disc?",
+                choices: "Cleavage/Blastulation/Gastrulation/Implantation/Decidualization",
+                answer: "Gastrulation",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which structure is an indication of the anus?",
+                choices: "-/- /The cloacal membrane/-/-",
+                answer: "The cloacal membrane",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following ways does the embryoblast recieves nutrients during the second week of the embryonic development?",
+                choices: "Fetal capillaries/Osmosis from endometrium capillaries/Connecting stalk/Diffusion of lacuna/Amniotic fluid",
+                answer: "Diffusion of lacuna",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is the most common cause of spontaneous abortion in the first week of development?",
+                choices: "Extrauterine implantation/Chromosomal abnormalities/Lack of fusion of Neural tube/Failure of blastocyst implantation/Zygote never developes into blastocyst and implant",
+                answer: "Chromosomal abnormalities",
+                select: "",
+                state: false
+            },
+            {
+                problem: "A 15-year-old woman was given a high dose of estrogen twice in 1 day to interrupt a possible pregnancy. Which of the following is the main reason?",
+                choices: "Inhibition of ovulation/Prevention of fertilization/Prevention of cleavage/Inhibition of implantation/Inhibition of hCG production",
+                answer: "Inhibition of implantation",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of following structures induces embryonic ectoderm to form CNS?",
+                choices: "Notochord/Neural groove/Neural crest/Prechordal plate/Mesenchymal cell",
+                answer: "Notochord",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following is a remnant from primitive streak?",
+                choices: "Chordomas/Allantoid cyst/Placenta previa/Hydatidiform mole/Sacrococcygeal teratoma",
+                answer: "Sacrococcygeal teratoma",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following cells forms the embryonic endoderm?",
+                choices: "Epiblast/Hypoblast/Mesoblast/Mesenchyme/Cytotrophoblast",
+                answer: "Epiblast",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What develops into nucleus pulposus?",
+                choices: "Notochord/Neural plate/Prechordal plate/-/Extraembryonic mesoderm",
+                answer: "Notochord",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following adult structures is derived from ectoderm?",
+                choices: "Liver/Pancreas/Blood vessel/Internal ear/Skeleton muscles",
+                answer: "Internal ear",
+                select: "",
+                state: false
+            },
+            {
+                problem: "During the third week of embryonic period, the mesoderm separated into many tissue regions. Which part of the mesoderm surrounds the secondary yolk sac?",
+                choices: "Paraxial mesoderm/Parietal mesoderm/Somatic mesoderm/Splanchnic mesoderm/Intermediate mesoderm",
+                answer: "Splanchnic mesoderm",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following structures are derived from the 1st pharyngeal arch?",
+                choices: "Malleus/Stapes/Greater cornu of hyoid bone/Thyroid cartilage/Cricoid cartilage",
+                answer: "Malleus",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following nerves innervates the muscles of the 2nd pharyngeal arch?",
+                choices: "Nerve V/Nerve VII/Nerve IX/Nerve X/Nerve XII",
+                answer: "Nerve VII",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which ...... gives rise to inferior parathyroid?",
+                choices: "1st pharyngeal pouch/2nd pharyngeal pouch/3rd pharyngeal pouch/4th pharyngeal pouch/1st pharyngeal arch",
+                answer: "3rd pharyngeal pouch",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following structures is derived from the 1st pharyngeal pouches to contact with the 1st pharyngeal groove?",
+                choices: "Eustachian tube/Palatine tonsil/Tympanic membrane/Tonsils sinus/Thymus",
+                answer: "Tympanic membrane",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following structures gives rise to external acoustic meatus?",
+                choices: "1st pharyngeal groove/2nd pharyngeal groove/3rd pharyngeal groove/4th pharyngeal pouch/1st pharyngeal pouch",
+                answer: "1st pharyngeal groove",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following structures is derived from lateral swelling and tuberculum impar?",
+                choices: "Epiglottis/Body of tongue/Root of tongue/Thyroid gland/Thymus",
+                answer: "Body of tongue",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following structures gives rise to the lower lip?",
+                choices: "Maxillary prominence/Mandibular prominence/Frontonasal prominence/Medial nasal prominence/Lateral nasal prominence",
+                answer: "Mandibular prominence",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which is the following structures gives rise to the intermaxillary segment?",
+                choices: "Maxillary prominence/Mandibular prominence/Frontonasal prominence/Medial nasal prominence/Lateral nasal prominence",
+                answer: "Medial nasal prominence",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following structures give rise to nasolacrimal duct?",
+                choices: "Maxillary and lateral nasal prominence/Maxillary and medial nasal prominence/Maxillary prominences and frontonasal prominences/Medial and lateral nasal prominences/Lateral nasal prominences and mandibular prominences",
+                answer: "Maxillary and lateral nasal prominence",
+                select: "",
+                state: false
+            },
+            {
+                problem: "A newborn is presented with a unilateral cleft lip. Which of the following would most likely fail to fuse?",
+                choices: "Maxillary prominence and medial nasal prominence/Maxillary prominence and lateral nasal prominence/Maxillary prominence and frontonasal prominence/Medial and lateral nasal promises/Maxillary and Mandibular prominence",
+                answer: "Maxillary prominence and medial nasal prominence",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following parts of cranial nerves is derived from neural crest cells?",
+                choices: "CN I    /CN II    /CN III    /CN IV    /CN V",
+                answer: "CN V",
+                select: "",
+                state: false
+            },
+            {
+                problem: "A 28-year-old woman came to the hospital. Physical examination reveals that CRL is 10-14 mm. Which is the estimated age?",
+                choices: "4 weeks/5 weeks/6 weeks/7 weeks/8 weeks",
+                answer: "6 weeks",
+                select: "",
+                state: false
+            },
+            {
+                problem: "The beginning of blood flow of the embryo is present in which week of development?",
+                choices: "4/5/6/7/8",
+                answer: "4",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following structures can be found in the 5th week of embryo?",
+                choices: "Blood flow/Optic pits  /Pharyngeal arch  /Mesonephric kidney  /External acoustic meatus",
+                answer: "Mesonephric kidney",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which one of the following birth defects caused by failed to close neural tube in the lumbosacral region?",
+                choices: "Encephalocele  /Spina bifida/Anencephaly/Capillary hemangiomas/Mermaid syndrome",
+                answer: "Spina bifida",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following measurements is commonly used to estimate fetal age?",
+                choices: "Femur length  /Biparietal diameter/Head circumference/Crown-Rump length/Abdominal circumference",
+                answer: "Crown-Rump length",
+                select: "",
+                state: false
+            },
+            {
+                problem: "A 24-year old woman has her last menstrual period on January, 2, 2022. Her menstrual period is 28 days. Which of the followings is the expected date of delivery?",
+                choices: "September 9,2022/August 4,2022/July 7,2022/October 9,2022  /December 9,2022",
+                answer: "October 9,2022",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following structure has developed in the interalveolar wall of the lung secrete surfactant?",
+                choices: "Erythrocyte/Type I pneumocyte/Type II pneumocyte/Pulmonary vein/Alveolar macrophage",
+                answer: "Type II pneumocyte",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following procedures is used in the early diagnosis of abnormal pregnancies?",
+                choices: "Amniocentesis  /Ultrasonography    /Chorionic villi sampling    /Biopsies of trophoblastic tissue  /Passive a polyethylene catheter through the cervix",
+                answer: "Biopsies of trophoblastic tissue  ",
+                select: "",
+                state: false
+            },
+            {
+                problem: "A 29-year-old pregnant woman was diagnosed with IUGR caused by impaired uteroplacental and fetoplacental blood flow. Which of the following is the most common factor?",
+                choices: "Smoking mother/Multiple pregnancy/Severe maternal hypotension  /Maternal use of marijuana and illicit drugs/Structural and numerical chromosomal abnormalities",
+                answer: "Severe maternal hypotension",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is a functional layer of endometrium contributing to placenta?",
+                choices: "Decidua basalis/Decidua capsularis/Decidua parietalis/Chorionic frondosum/Syncytiotrophoblast",
+                answer: "Decidua basalis",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of following structures belongs to maternal placental circulation?",
+                choices: "vessels in chorionic plate/umbilical veins/umbilical arteries/spiral arteries/capillaries in tertiary villi",
+                answer: "spiral arteries",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which structure can be found in 22 weeks of pregnancy?",
+                choices: "Endothelium and basement membrane of fetal capillaries/Mesoderm in the core of villus/Basement membrane of cytotrophoblast/Cytotrophoblast/Progressive tining syncytiotrophoblast",
+                answer: "Endothelium and basement membrane of fetal capillaries",
+                select: "",
+                state: false
+            },
+            {
+                problem: "A 34-years old pregnant woman was vaginal bleeding and ultrasound found villi invade the uterine serosa. Which is type of abnormal placenta?",
+                choices: "Placenta previa/Placenta accreta/Placenta increta/Placenta percreta/-",
+                answer: "Placenta percreta",
+                select: "",
+                state: false
+            },
+            {
+                problem: "A 28-year-old mother came to the hospital with 2 months amenorrhea. The ultrasound showed that she had monozygotic twins. Which of the following is true?",
+                choices: "Identical twins/Separated placenta/Separated chorionic sacs/Separated amniotic sacs/Twins with different sperms",
+                answer: "Identical twins",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is the amnioblast derived from?",
+                choices: "Epiblast/Hypoblast/Cytotrophoblast/Syncytiotrophoblast/Extraembryonic membrane",
+                answer: "Epiblast",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following structures presents in the primary yolk sac?",
+                choices: "Vitelline duct/Extraembryonic celom/Heuser’s membrane/Cuboidal epithelium cell/Primitive gut",
+                answer: "Heuser’s membrane",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is incorrect about allantois?",
+                choices: "Become median umbilical ligament in adults/Contribute urinary bladder/Hematopoietic In embryo/Develop and grow in to connecting stock/Become PGC",
+                answer: "Become PGC",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following structures is presented only in a fully developed umbilical cord?",
+                choices: "Umbilical artery/Umbilical vein/Allantois/Wharton’s jelly/Yolk stalk",
+                answer: "Wharton’s jelly",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following gestational ages is the most sensitive to risk of birth defect?",
+                choices: "3rd-8th week/9th-12th week/13th-15th week/16th-20th week/21st-26th week",
+                answer: "3rd-8th week",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following anomalies are easily recognizable indicators of other defects and are observed in virtually all children with syndromic malformations?",
+                choices: "Short palpebral fissures/Pigmented spot/Microtia/Anencephaly/Syndactyly",
+                answer: "Microtia",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following biochemical marker is increased in maternal serum during second trimester and causes neural tube defects?",
+                choices: "Blood sugar/Blood urine nitrogen/Alpha fetoprotein/Electrolyte/Creatinine",
+                answer: "Alpha fetoprotein",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following prenatal disturbances causes a high incidence of stillbirths, neonatal deaths, abnormally large infant and congenital malformation?",
+                choices: "Mother with phenylketonuria/Mother with diabetes/Mother with hypoxia/Mother with obesity/Mother with nutritional deficiency",
+                answer: "Mother with diabetes",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which one of the following congenital malformations is caused by elevated external sources of material body temperature, such as hot tubs and saunas?",
+                choices: "Urinary tract defect/Neural tube defect/Skeleton defect/Heart defect/Lung defect",
+                answer: "Neural tube defect",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following is a potent teratogen that rapidly kills proliferating cells, producing virtually any type of birth defect depending upon the dose and the stage of development of the conceptus at the time of exposure?",
+                choices: "Infection agents/Androgenic agents/Ionizing radiation/Physical agents/Pyrogens",
+                answer: "Ionizing radiation",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following development organs is particularly sensitive to the antidepressant drugs that work as selective serotonin reuptake inhibitor?",
+                choices: "Ear/Eye/Heart/Tooth/Neural tube",
+                answer: "Heart",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following is teratogenic to infants with skeletal abnormalities born to mothers with first trimester typically exposure?",
+                choices: "Anticoagulant warfarin/Industrial solvents/Organic mercury/ACE inhibitor/Alcohol",
+                answer: "Anticoagulant warfarin",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following can cause masculinization of female fetus?",
+                choices: "Smoking cigarettes/Diethylstilbestrol/Androgenic agents/Birth control pills/Cocaine",
+                answer: "Androgenic agents",
+                select: "",
+                state: false
+            }
+        ];
+        var questions51 = [
             {
                 problem: "Which of the following oocyte structures can be found within all stages of ovarian follicles?",
                 choices: "First polar body/Cortical Granule/Antrum/Zona pellucida/Germinal Vesicle",
-                answer: "Zona pellucida",
+                answer: "Germinial Vesicle",
                 select: "",
                 state: false
             },
@@ -191,14 +697,14 @@
             {
                 problem: "What is the similarity between first polar body and secondary oocyte?",
                 choices: "23 single chromatid/23 sister chromatid/48 sister chromatid/Metaphase I arrested/Cell diameter",
-                answer: "23 single chromatid",
+                answer: "23 sister chromatid",
                 select: "",
                 state: false
             },
             {
                 problem: "What is the oocyte structure that can be found in all stages of the follicle oocyte?",
-                choices: "Polar body/Zona pellucida/Antrum/Cortical granule/Germinal vesicle",
-                answer: "Zona pellucida",
+                choices: "Polar body/Zona pellucida/Antrum/Cortical granule/Germinal Vesicle",
+                answer: "Germinial Vesicle",
                 select: "",
                 state: false
             },
@@ -260,23 +766,22 @@
             },
             {
                 problem: "Which process appear just after sperm ZP binding?",
-                choices: "Acrosome reaction ปล่อย acrosomal enzyme มาย่อย ZP ทำให้ penetrate ได้/Polyspermy blocking/Decapacitation/Penetrating cumulus/Egg activation",
-                answer: "Acrosome reaction ปล่อย acrosomal enzyme มาย่อย ZP ทำให้ penetrate ได้",
+                choices: "Acrosome reaction/Polyspermy blocking/Decapacitation/Penetrating cumulus /Egg activation",
+                answer: "Acrosome reaction",
                 select: "",
                 state: false
             },
             {
-                problem: "Which of the following indicates a fertilized egg? การ fertilization กระตุ้นการแบ่ง meiosis II จนจบ",
-                choices: "Presence of one nucleus/Presence of two polar bodies  แบ่ง meiosis II จนจบแล้ว/GVBD/Thickened ZP/2 nuclei",
-                answer: "Presence of two polar bodies  แบ่ง meiosis II จนจบแล้ว",
+                problem: "Which of the following indicates a fertilized egg?",
+                choices: "Presence of one nucleus/Presence of two polar bodies/GVBD/Thickened ZP/2 nuclei",
+                answer: "Presence of two polar bodies",
                 select: "",
                 state: false
             },
-
             {
                 problem: "A 16-year-old woman was given a high dose of estrogen twice a day to interrupt possible pregnancy. Which of the following is the main reason?",
                 choices: "Prevention of fertilization/Prevention of ovulation/Inhibition of HCG production/Inhibition of cleavage/Inhibition of implantation",
-                answer: "Prevention of ovulation",
+                answer: "Prevention of implantation",
                 select: "",
                 state: false
             },
@@ -296,14 +801,7 @@
             },
             {
                 problem: "Where does sperm capacitation fully occur?",
-                choices: "Oviduct/Seminiferous tubules/Vagina/Epididymis/Uterus",
-                answer: "Oviduct",
-                select: "",
-                state: false
-            },
-            {
-                problem: "Where does sperm capacitation fully occur?",
-                choices: "Oviduct/Seminiferous tubules/Vagina/Epididymis/Uterus",
+                choices: "Oviduct/Seminiferous tubules /Vagina/Epididymis/Uterus",
                 answer: "Oviduct",
                 select: "",
                 state: false
@@ -374,7 +872,7 @@
             {
                 problem: "A 16-year-old woman was given a high dose of estrogen twice a day to interrupt possible pregnancy, Which of the following is the main reason?",
                 choices: "Prevention of fertilization/Prevention of ovulation/Inhibition of HCG production/Inhibition of cleavage/Inhibition of implantation",
-                answer: "Prevention of ovulation",
+                answer: "Prevention of implantation",
                 select: "",
                 state: false
             },
@@ -408,14 +906,14 @@
             },
             {
                 problem: "Which of the following adult structure is derived from ectoderm?",
-                choices: "Liver/Pancreas/Blood cell/Dermis/Epidermis",
+                choices: "Liver/Pancreas  /Blood cell/Dermis/Epidermis",
                 answer: "Epidermis",
                 select: "",
                 state: false
             },
             {
-                problem: "What is the most common cause of spontaneous in the first week of development?\n\n**เป็นข้อสอบเก่าปี 50 ที่ดึงมาให้ครบตามจำนวนข้อสอบจริง**",
-                choices: "Extrauterine implantation/Chromosomal abnormalities/Lack of fusion of Neural tube/Failure of blastocyst implantation/Zygote never developed into blastocyst and implant",
+                problem: "What is the most common cause of spontaneous in the first week of development?",
+                choices: "Extrauterine implantation/Chromosomal abnormalities/Lack of fusion of Neural tube/Failure of blastocyst implantation  /Zygote never developed into blastocyst and implant",
                 answer: "Chromosomal abnormalities",
                 select: "",
                 state: false
@@ -430,7 +928,7 @@
             {
                 problem: "Which of the following are correct pairings of pharyngeal arch and their muscle?",
                 choices: "Constrictors pharynx - 6th/Vocalis - 4th/Stapedius - 3rd/Tensor tympani - 1st/Stylopharyngeus - 2nd",
-                answer: "Stylopharyngeus - 2nd",
+                answer: "Tensor tympani - 1st",
                 select: "",
                 state: false
             },
@@ -499,14 +997,14 @@
             },
             {
                 problem: "At the ninth week of embryonic development, which is a major structure for erythropoiesis?",
-                choices: "Bone marrow จบ week ที่ 28/Spleen จบ week ที่ 12/Thymus/Lacuna/Liver",
+                choices: "Bone marrow  /Spleen  /Thymus/Lacuna/Liver",
                 answer: "Liver",
                 select: "",
                 state: false
             },
             {
                 problem: "Which of the following structures can be found in 5th week embryo?",
-                choices: "Pharyngeal arches week 4/Otic pits week 4/External acoustic meatus week 6/Mesonephric kidney/Blood flow week 4",
+                choices: "Pharyngeal arches  /Otic pits  /External acoustic meatus  /Mesonephric kidney/Blood flow",
                 answer: "Mesonephric kidney",
                 select: "",
                 state: false
@@ -514,7 +1012,7 @@
             {
                 problem: "A 28-year-old pregnant woman came to meet the doctor. The physical examination reveals that crown-rump length (CRL) is 10-14 mm. Which of the following is approximate age in weeks?",
                 choices: "5/6/7/8/4",
-                answer: "7",
+                answer: "6",
                 select: "",
                 state: false
             },
@@ -549,76 +1047,76 @@
             {
                 problem: "Which of the following factors is the result from increased survivability of preterm newborn at twenty-nine weeks after pregnancy?",
                 choices: "Urinary formation/Gas exchange/Returning of intestine into abdomen/Primary ossification center/Weight gain",
-                answer: "Weight gain",
+                answer: "Gas exchange",
                 select: "",
                 state: false
             },
             {
                 problem: "A 20-year-old woman has her last menstrual period on January 2, 2023. Her menstrual cycle is 28 days. Which of the following is the expected date of normal delivery?",
-                choices: "August 9, 2023/September 9, 2023/October 9, 2023/November 9, 2023/December 9, 2023",
+                choices: "August 9, 2023  /September 9, 2023  /October 9, 2023/November 9, 2023/December 9, 2023",
                 answer: "October 9, 2023",
                 select: "",
                 state: false
             },
             {
                 problem: "Which of the following structures belongs to maternal placental circulation?",
-                choices: "Vessels in chorionic plate/Spiral arteries/Umbilical vein/Umbilical arteries/Capillaries in tertiary villi",
+                choices: "Vessels in chorionic plate  /Spiral arteries/Umbilical vein  /Umbilical arteries  /Capillaries in tertiary villi",
                 answer: "Spiral arteries",
                 select: "",
                 state: false
             },
             {
                 problem: "A 28-year-old woman came to the hospital with 2-month absence of menstruation. Ultrasound showed that she had monozygotic twins. Which of the following is true?",
-                choices: "Separated placenta/Separated chorionic sacs/Separated amniotic sacs/Identical twins/Come from 2 different sperms",
+                choices: "Separated placenta  /Separated chorionic sacs  /Separated amniotic sacs  /Identical twins/Come from 2 different sperms",
                 answer: "Identical twins",
                 select: "",
                 state: false
             },
             {
                 problem: "A 43-year-old pregnant woman came to hospital with vaginal bleeding and ultrasound found that villi invaded the uterine serosa. Which is the type of abnormal placenta?",
-                choices: "Placenta previa/Placenta accreta/Placenta increta/Placenta percreta/Furcate placenta",
+                choices: "Placenta previa  /Placenta accreta  /Placenta increta  /Placenta percreta/Furcate placenta",
                 answer: "Placenta percreta",
                 select: "",
                 state: false
             },
             {
                 problem: "If the fetal blood cannot exchange the nutrients and gas with maternal blood, which of the following structures may be the most damage?",
-                choices: "Stem villi/Intervillous space/Intermediate villi/Terminal villi/Anchoring villi",
+                choices: "Stem villi  /Intervillous space  /Intermediate villi  /Terminal villi/Anchoring villi",
                 answer: "Terminal villi",
                 select: "",
                 state: false
             },
             {
                 problem: "A 30-year-old pregnant woman is diagnosed with polyhydramnios. Which of the following is the cause of this disorder?",
-                choices: "Fibrous bands of amniotic sac/Amnioblast cannot produce amniotic fluid/Renal agenesis/Esophageal atresia/Renal dysfunction",
+                choices: "Fibrous bands of amniotic sac  /Amnioblast cannot produce amniotic fluid  /Renal agenesis  /Esophageal atresia/Renal dysfunction",
                 answer: "Esophageal atresia",
                 select: "",
                 state: false
             },
             {
                 problem: "Which structure of blastocyst invades endometrial connective tissue and produces HCG hormones?",
-                choices: "Hypoblast/Amnioblast/Epiblast/Cytotrophoblast/Syncytiotrophoblast",
+                choices: "Hypoblast  /Amnioblast  /Epiblast   /Cytotrophoblast  /Syncytiotrophoblast",
                 answer: "Syncytiotrophoblast",
                 select: "",
                 state: false
             },
             {
                 problem: "Which of the following are the components of secondary villi?",
-                choices: "Decidua basalis, Syncytiotrophoblast and Cytotrophoblast/Decidua basalis, Cytotrophoblast and Extraembryonic mesoderm/Decidua basalis, Syncytiotrophoblast and Extraembryonic mesoderm/Syncytiotrophoblast and Cytotrophoblast/Syncytiotrophoblast, Cytotrophoblast and Extraembryonic mesoderm",
+                choices: "Decidua basalis, Syncytiotrophoblast and Cytotrophoblast  /Decidua basalis, Cytotrophoblast and Extraembryonic mesoderm  /Decidua basalis, Syncytiotrophoblast and Extraembryonic mesoderm/Syncytiotrophoblast and Cytotrophoblast  /Syncytiotrophoblast, Cytotrophoblast and Extraembryonic mesoderm",
                 answer: "Syncytiotrophoblast, Cytotrophoblast and Extraembryonic mesoderm",
                 select: "",
                 state: false
             },
             {
                 problem: "Which following functional layer of endometrium contributes to placenta?",
-                choices: "Chorionic frondosum/Decidua basalis/Decidua parietalis/Decidua capsularis/Syncytiotrophoblast",
+                choices: "Chorionic frondosum  /Decidua basalis/Decidua parietalis  /Decidua capsularis  /Syncytiotrophoblast",
                 answer: "Decidua basalis",
                 select: "",
                 state: false
             },
             {
                 problem: "Which of the following structures is developed to be the umbilical cord?",
-                choices: "Connecting stalk and Allantois/Connecting stalk and Yolk sac/Connecting stalk and Amniotic membrane/Amniotic membrane and Vitelline duct/Allantois and Vitelline ducts",
+                choices: "Connecting stalk and Allantois/Connecting stalk and Yolk sac/Connecting stalk and Amniotic membrane/Amniotic membrane and Vitelline duct  /Allantois and Vitelline ducts",
                 answer: "Connecting stalk and Allantois",
                 select: "",
                 state: false
@@ -632,35 +1130,35 @@
             },
             {
                 problem: "Which gestational period has the highest risk of birth defect?",
-                choices: "3rd - 8th week/16th - 20th week/21st - 25th week/26th- 30th week/9th - 15th week",
-                answer: "3rd - 8th week",
+                choices: "3rd - 8th week  /16th - 20th week  /21st - 25th week   /26th- 30th week  /9th - 15th week",
+                answer: "3rd - 8th week  ",
                 select: "",
                 state: false
             },
             {
                 problem: "Which of the following anomalies are easily recognizable indicators of other defects and are observed in virtually all children with syndromic malformations?",
-                choices: "Pigmented spot/Syndactyly/Anencephaly/Short palpebral fissure/Microtia",
+                choices: "Pigmented spot   /Syndactyly  /Anencephaly   /Short palpebral fissure  /Microtia",
                 answer: "Microtia",
                 select: "",
                 state: false
             },
             {
                 problem: "Which of the following is a group of anomalies?",
-                choices: "Syndrome/Disjunction/Disruption/Malformation/Deformation",
+                choices: "Syndrome/Disjunction   /Disruption  /Malformation  /Deformation",
                 answer: "Syndrome",
                 select: "",
                 state: false
             },
             {
                 problem: "Which of the following can rapidly kill the proliferating cells?",
-                choices: "Antidepressant drugs/Retinoids/Radiation/Anticoagulant drugs/Thalidomide",
-                answer: "Radiation",
+                choices: "Antidepressant drugs  /Retinoids  /Radiation  /Anticoagulant drugs/Thalidomide",
+                answer: "Radiation  ",
                 select: "",
                 state: false
             },
             {
                 problem: "Which of the following nutritional deficiencies can cause two to three fold increase in schizophrenia in the offspring?",
-                choices: "Severe starvation/Folic acid deficiency/Alcohol deficiency/Iodine deficiency/Seafood deficiency",
+                choices: "Severe starvation   /Folic acid deficiency  /Alcohol deficiency   /Iodine deficiency   /Seafood deficiency",
                 answer: "Severe starvation",
                 select: "",
                 state: false
@@ -681,8 +1179,8 @@
             },
             {
                 problem: "Which disease cannot be transmitted vertically to the fetus?",
-                choices: "HIV/Rubella/Varicella/Hepatitis B/Herpes simplex",
-                answer: "Herpes simplex",
+                choices: "HIV/Rubella  /Varicella   /Hepatitis B  /Herpes simplex",
+                answer: "HIV",
                 select: "",
                 state: false
             },
@@ -700,7 +1198,8 @@
                 select: "",
                 state: false
             }
-        ];
+        ]
+        var questions = questions50.concat(questions51);
         var random_question = questions.sort(() => Math.random() - 0.5);
         var questionIndex = 0;
         var current_question = {};
