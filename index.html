@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="vendor\materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        display: flex;
+        /* Center the container horizontally */
+        justify-content: center;
+    }
+
+    .center-column {
+        text-align: center;
+        /* Center elements within the container */
+    }
+
+    #question {
+        font-weight: bold;
+        margin-bottom: 20px;
+        font-size: 30px;
+    }
+
+    #choices {
+        display: flex;
+        flex-wrap: wrap;
+        /* Wrap choices if needed */
+        margin-bottom: 10px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    #choices button {
+        background-color: rgb(220, 217, 217);
+        /* Default button color */
+        color: black;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        /* Indicate clickable cursor */
+        margin: 5px;
+        /* Add space between choices */
+        transition: background-color 0.3s;
+        /* Add smooth color transition on hover */
+    }
+
+    #choices button:hover {
+        background-color: darkgray;
+        /* Button color on hover */
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        /* Add subtle shadow on hover */
+    }
+
+    #choices button:active {
+        background-color: rgb(133, 133, 133);
+        color: rgb(206, 206, 206);
+    }
+
+    #choices button:focus {
+        outline: none;
+        /* Remove default focus outline */
+    }
+
+    #submit-btn {
+        background-color: black;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+    }
+
+    #submit-btn:hover {
+        background-color: rgb(57, 57, 57);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    #feedback.correct {
+        color: black;
+        /* Default green for correct answer */
+        margin-top: 20px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        font-size: 30px;
+    }
+
+    #feedback.incorrect {
+        color: black;
+        /* Red for incorrect answer */
+        margin: 20px 0;
+        font-weight: bold;
+        margin-bottom: 20px;
+        font-size: 30px;
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+
+    }
+
+    #prev-question {
+        background-color: black;
+        color: white;
+        padding: 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+    }
+
+    #next-question {
+        background-color: black;
+        color: white;
+        padding: 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    table th {
+        background-color: rgb(40, 40, 40);
+        color: white;
+        padding: 10px;
+    }
+
+    table td {
+        border: 1px solid black;
+        padding: 10px;
+    }
+
+    #quiz-container {
+        width: 100%;
+        border: 1px solid rgb(70, 70, 70);
+        padding: 20px;
+        border-radius: 5px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+        var questions = [
+            {
+                problem: "Which of the following oocyte structures can be found within all stages of ovarian follicles?",
+                choices: "First polar body/Cortical Granule/Antrum/Zona pellucida/Germinal Vesicle",
+                answer: "Zona pellucida",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following age period of ovary begins to form primary oocytes?",
+                choices: "Fetus/Puberty/Delayed puberty/Adolescence/Childhood",
+                answer: "Fetus",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is the similarity between first polar body and secondary oocyte?",
+                choices: "23 single chromatid/23 sister chromatid/48 sister chromatid/Metaphase I arrested/Cell diameter",
+                answer: "23 single chromatid",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is the oocyte structure that can be found in all stages of the follicle oocyte?",
+                choices: "Polar body/Zona pellucida/Antrum/Cortical granule/Germinal vesicle",
+                answer: "Zona pellucida",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is the result of LH surge in the first 15 hours?",
+                choices: "1st polar body/Meiosis 1 arrested/Germinal vesicle formation/Germinal vesicle breaking down/Meiosis 2 arrested",
+                answer: "Germinal vesicle breaking down",
+                select: "",
+                state: false
+            },
+            {
+                problem: "When is the metaphase ii arrested in oocytes?",
+                choices: "Presence of a huge anthurium follicle/Presence of First polar body/Presence of corona radiata/Before LH peak, 15 hours/After LH surge, 30 hours",
+                answer: "After LH surge, 30 hours",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which the following of egg structures is comparable to sperm acrosome?",
+                choices: "ZP1/ZP2/ZP3/Cortical granule/Perivitelline space",
+                answer: "Cortical granule",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following nuclear proteins packs the sperm DNA?",
+                choices: "Histone/Translational Protein I/Protamine 2/Translational Protein II/Pre-Protamine 2",
+                answer: "Protamine 2",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following is the status division of primary spermatocyte?",
+                choices: "Prophase I/Metaphase I/Anaphase I/Interphase/Telophase I",
+                answer: "Prophase I",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which structure contributes to acrosome biogenesis?",
+                choices: "Lysosome/SER/SER/Golgi apparatus/Mitochondria",
+                answer: "Golgi apparatus",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following can possibly cause chromosomal abnormalities?",
+                choices: "Intrauterine insemination/ICSI/GIFT/Intracervical insemination/ZIFT",
+                answer: "ICSI",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is a major cause of using testicular sperm extraction in fertility treatment  in men?",
+                choices: "Low sperm count/No sperm in semen/Low fracture in seminal plasma/Low sperm viability/Low sperm motility",
+                answer: "No sperm in semen",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which process appear just after sperm ZP binding?",
+                choices: "Acrosome reaction ปล่อย acrosomal enzyme มาย่อย ZP ทำให้ penetrate ได้/Polyspermy blocking/Decapacitation/Penetrating cumulus/Egg activation",
+                answer: "Acrosome reaction ปล่อย acrosomal enzyme มาย่อย ZP ทำให้ penetrate ได้",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following indicates a fertilized egg? การ fertilization กระตุ้นการแบ่ง meiosis II จนจบ",
+                choices: "Presence of one nucleus/Presence of two polar bodies  แบ่ง meiosis II จนจบแล้ว/GVBD/Thickened ZP/2 nuclei",
+                answer: "Presence of two polar bodies  แบ่ง meiosis II จนจบแล้ว",
+                select: "",
+                state: false
+            },
+
+            {
+                problem: "A 16-year-old woman was given a high dose of estrogen twice a day to interrupt possible pregnancy. Which of the following is the main reason?",
+                choices: "Prevention of fertilization/Prevention of ovulation/Inhibition of HCG production/Inhibition of cleavage/Inhibition of implantation",
+                answer: "Prevention of ovulation",
+                select: "",
+                state: false
+            },
+            {
+                problem: "An 18-year-old female pregnancy came to the hospital with severe abdominal pain and mild vaginal bleeding. Blood hormone levels indicate inadequate production from the corpus luteum. Which of the following would be diagnosed?",
+                choices: "Ectopic pregnancy/Spontaneous abortion/Sacrococcygeal teratoma/Placenta percreta/Multiple pregnancy",
+                answer: "Spontaneous abortion",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following is a normal implantation site in the uterus?",
+                choices: "Anterior body of uterus/Superior-anterior body of uterus/Superior-posterior body of uterus/Internal os/Fundus",
+                answer: "Superior-posterior body of uterus",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Where does sperm capacitation fully occur?",
+                choices: "Oviduct/Seminiferous tubules/Vagina/Epididymis/Uterus",
+                answer: "Oviduct",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Where does sperm capacitation fully occur?",
+                choices: "Oviduct/Seminiferous tubules/Vagina/Epididymis/Uterus",
+                answer: "Oviduct",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which embryonic stages consist of sixteen cells contained in the zona pellucida?",
+                choices: "Blastocyst/Blastomere/Zygote/Gastrula/Morula",
+                answer: "Morula",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following develops to be a spinal ganglion?",
+                choices: "Neural tube/Neural crest/Neural groove/Neural plate/Notochord",
+                answer: "Neural crest",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which embryonic stages consists of sixteen cells contained in the zona pellucida?",
+                choices: "Blastomere/Blastocyst/Zygote/Gastrula/Morula",
+                answer: "Morula",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is the primary function of decidua cell during conceptus implantation ?",
+                choices: "Providing nutrition & immune special site/Inhibit blastocyst implantation/Forming extraembryonic mesoderm/Disrupt neurulation/Formation of urinary bladder",
+                answer: "Providing nutrition & immune special site",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which structure is contained in primary yolk sac?",
+                choices: "Vitelline duct/Extraembryonic coelom/Heuser+IBK-s membrane of endodermal cells/Cuboidal endothelium cells/Primitive guts",
+                answer: "Heuser+IBK-s membrane of endodermal cells",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following structures induce embryonic ectoderm to form CNS?",
+                choices: "Neural crest/Notochord/Neural groove/Primitive groove/Neural plate",
+                answer: "Notochord",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Approximately 14 days after fertilization, which of the following structures indicates the site for future development of the oral cavity?",
+                choices: "Prechordal plate/Cloacal membrane/Amniotic cavity/Secondary yolk sac/Connecting stalk",
+                answer: "Prechordal plate",
+                select: "",
+                state: false
+            },
+            {
+                problem: "An 18-year-old female pregnancy comes to hospital with severe abdominal pain and mind vaginal bleeding blood hormone levels indicate inadequate productions from the corpus luteum. Which of the following is diagnosed?",
+                choices: "Ectopic implantation/Spontaneous abortion/Placenta percreta/Sacrococcygeal teratoma/Multiple pregnancy",
+                answer: "Spontaneous abortion",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What structure of blastocyst invades endometrial connective tissue and produces HCG hormones?",
+                choices: "Hypoblast/Amnioblast/Epiblast/Cytotrophoblast/Syncytiotrophoblast",
+                answer: "Syncytiotrophoblast",
+                select: "",
+                state: false
+            },
+            {
+                problem: "A 16-year-old woman was given a high dose of estrogen twice a day to interrupt possible pregnancy, Which of the following is the main reason?",
+                choices: "Prevention of fertilization/Prevention of ovulation/Inhibition of HCG production/Inhibition of cleavage/Inhibition of implantation",
+                answer: "Prevention of ovulation",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the followings is a normal implantation site in the uterus?",
+                choices: "Anterior body of uterus/Superior-anterior body of uterus/Superior-posterior body of uterus/Internal os/Fundus",
+                answer: "Superior-posterior body of uterus",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Diagnosed with huge sacrococcygeal teratoma, what is the causes of this?",
+                choices: "Abnormal closure of neural tube/Persistence remnants of primitive streaks/Abnormal of neurenteric canal/Failure of neural fold to fuse/Umbilical cord swelling",
+                answer: "Persistence remnants of primitive streaks",
+                select: "",
+                state: false
+            },
+            {
+                problem: "After blastocyst implants in the endometrium, which developmental process transforms bilaminar to trilaminar embryonic disc?",
+                choices: "Blastulation/Gastrulation/Cleavage/Implantation/Decidualization",
+                answer: "Gastrulation",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following in adult form from the endoderm?",
+                choices: "Internal ear/Respiratory system/Skeleton muscle/Ligament/Tendon",
+                answer: "Respiratory system",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following adult structure is derived from ectoderm?",
+                choices: "Liver/Pancreas/Blood cell/Dermis/Epidermis",
+                answer: "Epidermis",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is the most common cause of spontaneous in the first week of development?\n\n**เป็นข้อสอบเก่าปี 50 ที่ดึงมาให้ครบตามจำนวนข้อสอบจริง**",
+                choices: "Extrauterine implantation/Chromosomal abnormalities/Lack of fusion of Neural tube/Failure of blastocyst implantation/Zygote never developed into blastocyst and implant",
+                answer: "Chromosomal abnormalities",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following remnant structure is developed to be a pyramidal lobe of thyroid gland?",
+                choices: "Foramen caecum/Tongue/Thyroglossal duct/Pharyngeal gut/Hyoid bone",
+                answer: "Thyroglossal duct",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following are correct pairings of pharyngeal arch and their muscle?",
+                choices: "Constrictors pharynx - 6th/Vocalis - 4th/Stapedius - 3rd/Tensor tympani - 1st/Stylopharyngeus - 2nd",
+                answer: "Stylopharyngeus - 2nd",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following arteries is derived from the third Aortic arch?",
+                choices: "Subclavian artery/Pulmonary artery/Maxillary artery/Common carotid artery/Ascending pharyngeal artery",
+                answer: "Common carotid artery",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following pharyngeal arch defects is genetically involved Treacher-Collins and Pierre-Robin syndrome?",
+                choices: "First/Second/Third/Fourth/Sixth",
+                answer: "First",
+                select: "",
+                state: false
+            },
+            {
+                problem: "The 35 year-old female visited her doctor because of swelling on the neck right side. Examination revealed a congenital mass anterior to the sternocleidomastoid muscle. The swelling is asymptomatic, non-painful and soft. Which is mostly diagnosed?",
+                choices: "Thyroglossal cyst/Branchial cyst/Ectopic thyroid tissue/Swollen lymph node/Ruptured sternocleidomastoid muscle",
+                answer: "Branchial cyst",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Abnormalities of thyroid, superior and inferior parathyroid of infants with DI gorge syndrome. Which of pharyngeal pouch(es) affect(s) these information?",
+                choices: "1st/2nd/2nd & 3rd/3rd/3rd & 4th",
+                answer: "3rd & 4th",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Patient had hoarseness and difficultly speaking due to thyroidectomy.What is the embryo logical of damage nerve that is most likely causing patient’s hoarseness?",
+                choices: "Pharyngeal arch 1/Pharyngeal arch 2/Pharyngeal arch 3/Pharyngeal arch 4/Pharyngeal arch 6",
+                answer: "Pharyngeal arch 6",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Pharyngeal arches start to develop on which week of embryonic development?",
+                choices: "4th/5th/6th/7th/8th",
+                answer: "4th",
+                select: "",
+                state: false
+            },
+            {
+                problem: "During the third week of embryonic development, the mesoderm become recognized into separate tissue. Which of the following of mesoderm surround amnion?",
+                choices: "Paraxial mesoderm/Splanchnic mesoderm/Visceral mesoderm/Somatic mesoderm/Intermediate mesoderm",
+                answer: "Somatic mesoderm",
+                select: "",
+                state: false
+            },
+            {
+                problem: "A 2-day-old female infant has a gap in her upper lip. What is the embryologic etiology of this abnormality?",
+                choices: "Failure of the lateral nasal process to fuse with the medial nasal process/Failure of lateral nasal processes to fuse with each other/Failure of the maxillary process to fuse with the intermaxillary segment/Failure of palatine shelves to fuse with the medial nasal process/Failure of palatine shelves to fuse with each other",
+                answer: "Failure of the maxillary process to fuse with the intermaxillary segment",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Blood flow embryo เริ่มที่วีคไหน",
+                choices: "4/5/6/7/8",
+                answer: "4",
+                select: "",
+                state: false
+            },
+            {
+                problem: "At the ninth week of embryonic development, which is a major structure for erythropoiesis?",
+                choices: "Bone marrow จบ week ที่ 28/Spleen จบ week ที่ 12/Thymus/Lacuna/Liver",
+                answer: "Liver",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following structures can be found in 5th week embryo?",
+                choices: "Pharyngeal arches week 4/Otic pits week 4/External acoustic meatus week 6/Mesonephric kidney/Blood flow week 4",
+                answer: "Mesonephric kidney",
+                select: "",
+                state: false
+            },
+            {
+                problem: "A 28-year-old pregnant woman came to meet the doctor. The physical examination reveals that crown-rump length (CRL) is 10-14 mm. Which of the following is approximate age in weeks?",
+                choices: "5/6/7/8/4",
+                answer: "7",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following birth defects involves the incomplete closure of the neural tube in the lumbosacral region during embryonic period?",
+                choices: "Mermaid syndrome/Microcephaly/Hydrocephalus/Spina bifida/Anencephaly",
+                answer: "Spina bifida",
+                select: "",
+                state: false
+            },
+            {
+                problem: "A 32-year-old female pregnancy presents with severe hypotension. Which of the following is the most likely to occur on a fetus?",
+                choices: "Loss of pupillary reflex/High birth weight/Insufficient alveolar surfactant/Respiratory distress syndrome/IUGR",
+                answer: "IUGR",
+                select: "",
+                state: false
+            },
+            {
+                problem: "During seventeen to twenty weeks after fertilization, which of the following is a mixture of dead epidermal cells and a fatty substance from the fetal sebaceous glands?",
+                choices: "Vernix caseosa/White fat/Brown fat/Intestinal coil/Lanugo",
+                answer: "Vernix caseosa",
+                select: "",
+                state: false
+            },
+            {
+                problem: "At the ninth week after fertilization, which is the major site of erythropoiesis?",
+                choices: "Bone marrow/Spleen/Thymus/Lacuna/Liver",
+                answer: "Liver",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following factors is the result from increased survivability of preterm newborn at twenty-nine weeks after pregnancy?",
+                choices: "Urinary formation/Gas exchange/Returning of intestine into abdomen/Primary ossification center/Weight gain",
+                answer: "Weight gain",
+                select: "",
+                state: false
+            },
+            {
+                problem: "A 20-year-old woman has her last menstrual period on January 2, 2023. Her menstrual cycle is 28 days. Which of the following is the expected date of normal delivery?",
+                choices: "August 9, 2023/September 9, 2023/October 9, 2023/November 9, 2023/December 9, 2023",
+                answer: "October 9, 2023",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following structures belongs to maternal placental circulation?",
+                choices: "Vessels in chorionic plate/Spiral arteries/Umbilical vein/Umbilical arteries/Capillaries in tertiary villi",
+                answer: "Spiral arteries",
+                select: "",
+                state: false
+            },
+            {
+                problem: "A 28-year-old woman came to the hospital with 2-month absence of menstruation. Ultrasound showed that she had monozygotic twins. Which of the following is true?",
+                choices: "Separated placenta/Separated chorionic sacs/Separated amniotic sacs/Identical twins/Come from 2 different sperms",
+                answer: "Identical twins",
+                select: "",
+                state: false
+            },
+            {
+                problem: "A 43-year-old pregnant woman came to hospital with vaginal bleeding and ultrasound found that villi invaded the uterine serosa. Which is the type of abnormal placenta?",
+                choices: "Placenta previa/Placenta accreta/Placenta increta/Placenta percreta/Furcate placenta",
+                answer: "Placenta percreta",
+                select: "",
+                state: false
+            },
+            {
+                problem: "If the fetal blood cannot exchange the nutrients and gas with maternal blood, which of the following structures may be the most damage?",
+                choices: "Stem villi/Intervillous space/Intermediate villi/Terminal villi/Anchoring villi",
+                answer: "Terminal villi",
+                select: "",
+                state: false
+            },
+            {
+                problem: "A 30-year-old pregnant woman is diagnosed with polyhydramnios. Which of the following is the cause of this disorder?",
+                choices: "Fibrous bands of amniotic sac/Amnioblast cannot produce amniotic fluid/Renal agenesis/Esophageal atresia/Renal dysfunction",
+                answer: "Esophageal atresia",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which structure of blastocyst invades endometrial connective tissue and produces HCG hormones?",
+                choices: "Hypoblast/Amnioblast/Epiblast/Cytotrophoblast/Syncytiotrophoblast",
+                answer: "Syncytiotrophoblast",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following are the components of secondary villi?",
+                choices: "Decidua basalis, Syncytiotrophoblast and Cytotrophoblast/Decidua basalis, Cytotrophoblast and Extraembryonic mesoderm/Decidua basalis, Syncytiotrophoblast and Extraembryonic mesoderm/Syncytiotrophoblast and Cytotrophoblast/Syncytiotrophoblast, Cytotrophoblast and Extraembryonic mesoderm",
+                answer: "Syncytiotrophoblast, Cytotrophoblast and Extraembryonic mesoderm",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which following functional layer of endometrium contributes to placenta?",
+                choices: "Chorionic frondosum/Decidua basalis/Decidua parietalis/Decidua capsularis/Syncytiotrophoblast",
+                answer: "Decidua basalis",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following structures is developed to be the umbilical cord?",
+                choices: "Connecting stalk and Allantois/Connecting stalk and Yolk sac/Connecting stalk and Amniotic membrane/Amniotic membrane and Vitelline duct/Allantois and Vitelline ducts",
+                answer: "Connecting stalk and Allantois",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following structures presents in the primary yolk sac?",
+                choices: "Vitelline duct/Heuser’s membrane/Extraembryonic coelom/Cuboidal endothelium cells/Primitive gut",
+                answer: "Heuser’s membrane",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which gestational period has the highest risk of birth defect?",
+                choices: "3rd - 8th week/16th - 20th week/21st - 25th week/26th- 30th week/9th - 15th week",
+                answer: "3rd - 8th week",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following anomalies are easily recognizable indicators of other defects and are observed in virtually all children with syndromic malformations?",
+                choices: "Pigmented spot/Syndactyly/Anencephaly/Short palpebral fissure/Microtia",
+                answer: "Microtia",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following is a group of anomalies?",
+                choices: "Syndrome/Disjunction/Disruption/Malformation/Deformation",
+                answer: "Syndrome",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following can rapidly kill the proliferating cells?",
+                choices: "Antidepressant drugs/Retinoids/Radiation/Anticoagulant drugs/Thalidomide",
+                answer: "Radiation",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following nutritional deficiencies can cause two to three fold increase in schizophrenia in the offspring?",
+                choices: "Severe starvation/Folic acid deficiency/Alcohol deficiency/Iodine deficiency/Seafood deficiency",
+                answer: "Severe starvation",
+                select: "",
+                state: false
+            },
+            {
+                problem: " Which of the following are caused by the vertical transmission of Rubella Virus?",
+                choices: "Skin scarring, Lymph hypoplasia, Muscular atrophy/Microcephaly, Visual impairment, Fetal death/Hydrocephalus, Cerebral Calcification, Microphthalmia/Cataracts, Glaucoma, Heart defects, Hearing loss, tooth abnormalities/Microcephaly, Microphthalmia, Retina dysplasia",
+                answer: "Cataracts, Glaucoma, Heart defects, Hearing loss, tooth abnormalities",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following can cause masculinization of a female fetus?",
+                choices: "Cigarettes smoking/Birth control pills/Cocaine/Diethylstilbestrol/Androgenic agents",
+                answer: "Androgenic agents",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which disease cannot be transmitted vertically to the fetus?",
+                choices: "HIV/Rubella/Varicella/Hepatitis B/Herpes simplex",
+                answer: "Herpes simplex",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following continental malformations is caused by elevated external sources of maternal body temperature, such as hot tubes and saunas?",
+                choices: "Urinary tract defect/Neural tube defect/Skeleton defect/Heart defect/Lung defect",
+                answer: "Neural tube defect",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following is teratogenic to infants with skeleton abnormalities?",
+                choices: "Warfarin/Industrial solvents/Organic mercury/ACE inhibitor/Alcohol",
+                answer: "Warfarin",
+                select: "",
+                state: false
+            }
+        ];
+        var random_question = questions.sort(() => Math.random() - 0.5);
+        var questionIndex = 0;
+        var current_question = {};
+
+        function nextquestion() {
+            if (questionIndex < random_question.length - 1) {
+                questionIndex++;
+                console.log(questionIndex);
+                showquestion();
+                $("#feedback").text("");
+            }
+        }
+
+        $("#next-question").click(function () {
+            if (!random_question[questionIndex].state) {
+                alert("Please select an answer");
+                return;
+            }
+            else {
+                nextquestion();
+            }
+        });
+
+        function prevquestion() {
+            if (questionIndex > 0) {
+                questionIndex--;
+                console.log(questionIndex);
+                showquestion();
+                $("#feedback").text("");
+            }
+        }
+
+        $("#prev-question").click(function () {
+            prevquestion();
+        });
+
+        function showquestion() {
+            showsubmission(random_question);
+            console.log(random_question);
+            console.log(questionIndex);
+            current_question = random_question[questionIndex];
+            if (current_question.state === true) {
+                $("#question").text(current_question.problem);
+                $("#choices").empty();
+                var choices = current_question.choices.split("/");
+                for (var i = 0; i < choices.length; i++) {
+                    $("#choices").append("<button>" + choices[i] + "</button>");
+                }
+                $("#feedback").empty();
+                if (current_question.select === current_question.answer) {
+                    $("#feedback").addClass("correct");
+                    $("#feedback").text("Correct! : " + " " + current_question.answer);
+                } else {
+                    $("#feedback").text("Incorrect!, Your Ans: " + current_question.select);
+                    $("#feedback").addClass("incorrect");
+                }
+            }
+            else {
+                $("#question").text(current_question.problem);
+                var choices = current_question.choices.split("/");
+                $("#choices").empty();
+                for (var i = 0; i < choices.length; i++) {
+                    $("#choices").append("<button>" + choices[i] + "</button>");
+                }
+            }
+            $("#questionIndex").text(questionIndex + 1);
+        }
+
+        function submitquestion() {
+            var selected = $("button").filter(".selected").text();
+            random_question[questionIndex].select = selected;
+            random_question[questionIndex].state = true;
+            if (selected === current_question.answer) {
+                $("#feedback").addClass("correct");
+                $("#feedback").text("Correct! : " + " " + current_question.answer);
+            } else {
+                $("#feedback").text("Incorrect!, Correct Ans: " + current_question.answer);
+                $("#feedback").addClass("incorrect");
+            }
+        }
+
+        $("#choices").on("click", "button", function () {
+            $(this).addClass("selected").siblings().removeClass("selected");
+        });
+
+        $("#submit-btn").click(function () {
+            submitquestion();
+        });
+
+        function showsubmission(random_question) {
+            var table = document.querySelector("table");
+            table.innerHTML = "";
+            for (var i = 0; i < random_question.length; i++) {
+                if (random_question[i].state === true) {
+                    var row = table.insertRow();
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+                    cell1.innerHTML = random_question[i].problem;
+                    cell2.innerHTML = random_question[i].answer;
+                    cell3.innerHTML = random_question[i].select;
+                }
+            }
+        }
+
+        showquestion();
+    });
+
+</script>
+
+<body>
+    <div class="row">
+        <div id="quiz-container" class="center-column">
+            <!-- show questionindex -->
+            <h1>Random Quiz ตอนนี้อยู่ข้อ <span id="questionIndex"></span> </h1>
+            <p id="question"></p>
+            <div id="choices"></div>
+            <button id="submit-btn">Submit Answer</button>
+            <p id="feedback" onclick="wow"></p>
+            <div class="row">
+                <button id="prev-question">Previous Question</button>
+                <button id="next-question">Next Question</button>
+            </div>
+        </div>
+        <!-- create table to show the submission -->
+        <table>
+            <tr>
+                <th>Question</th>
+                <th>Correct Answer</th>
+                <th>Your Answer</th>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
