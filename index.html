@@ -169,6 +169,12 @@
         text-align: center;
 
     }
+
+    .small {
+        font-size: 13px;
+        color: gray;
+
+    }
 </style>
 
 <script>
@@ -211,7 +217,7 @@
             },
             {
                 problem: "What is the important function of golgi body in round spermatid?",
-                choices: "-/-/- /To form acrosome/-",
+                choices: "To form acrosome/To form centriole/To form flagellum/To form nucleus/To form mitochondria",
                 answer: "To form acrosome",
                 select: "",
                 state: false
@@ -316,7 +322,7 @@
             },
             {
                 problem: "A 18-year-old went to hospital with severe abdominal pain. Diagnosis is ectopic pregnancy. Where is it?",
-                choices: "-/-/- /Ampulla/-",
+                choices: "Ampulla/Fimbriae/Isthmus/Infundibulum/Interstitium",
                 answer: "Ampulla",
                 select: "",
                 state: false
@@ -344,7 +350,7 @@
             },
             {
                 problem: "Which structure is an indication of the anus?",
-                choices: "-/- /The cloacal membrane/-/-",
+                choices: "Cloacal membrane/Primitive streak/Primitive node/Primitive pit/Primitive groove",
                 answer: "The cloacal membrane",
                 select: "",
                 state: false
@@ -1323,6 +1329,8 @@
                 <button id="prev-question">Previous Question</button>
                 <button id="next-question">Next Question</button>
             </div>
+            <!-- หมายเหตุ -->
+            <div class="small">ref. mdkkudatabase</div>
         </div>
         <!-- create table to show the submission -->
         <table>
