@@ -74,11 +74,6 @@
         color: rgb(206, 206, 206);
     }
 
-    #choices button:focus {
-        outline: none;
-        /* Remove default focus outline */
-    }
-
     #submit-btn {
         background-color: black;
         color: white;
@@ -179,6 +174,562 @@
 
 <script>
     $(document).ready(function () {
+        var questions49 = [
+            {
+                problem: "Which of the following week does the eyes become obviously present?",
+                choices: "Week 4/Week 5/Week 6/Week 7/Week 8",
+                answer: "Week 6",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following is the result of zona hardening?",
+                choices: "Sperm capacitation/Penetration of sperm to ZP/Binding of sperm and oocyte membrane/Dispersion of corona radiata/Cortical granule releasing",
+                answer: "Cortical granule releasing",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following structure synthesized during oogenesis is similar/homologous to sperm acrosome in terms of structure and function?",
+                choices: "ZP3/Cortical granule/ZP1/ZP2/Polar body",
+                answer: "Cortical granule",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What structure is formed from the same embryonic primordial as dorsal root ganglia?",
+                choices: "Liver/Adrenal medulla/Tonsil/Kidneys/Spleen",
+                answer: "Adrenal medulla",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the followings is derived from the same embryonic germ layer as dorsal root ganglion?",
+                choices: "Adrenal medulla/Liver/Tonsil/Dura mater/Kidney",
+                answer: "Adrenal medulla",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is the structure derived from the same embryonic germ layer as the pancreas?",
+                choices: "Liver/Arachnoid mater/Adrenal medulla/Thymus/Spleen",
+                answer: "Liver",
+                select: "",
+                state: false
+            },
+            {
+                problem: "When is the development of all limb regions completed?",
+                choices: "Week 4/Week 5/Week 6/Week 7/Week 8",
+                answer: "Week 8",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Where is the oogonia localized?",
+                choices: "In primordial follicle of fetus/In primary follicle of puberty/In primordial follicle of infant/Near primordial germ cell/In primordial follicle of prepuberty",
+                answer: "In primordial follicle of fetus",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is the phase of cell division found in ovulated oocyte?",
+                choices: "Prophase II/Late prophase I/Anaphase II/Metaphase II/Telophase II",
+                answer: "Metaphase II",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following structures is responsible for functional maturation and storage of human sperm? (อ่านเลคเเรกมาดี ๆ ข้อสอบออกใหม่ทุกปีเเต่เหมือน อจ. จะเเอบบอกแนวตอนสอนอยู่น้า)",
+                choices: "Body epididymis/Interstitial tissue of testis/Tail epididymis/Head epididymis/Body testis",
+                answer: "Head epididymis",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is the similarity between round and elongated spermatids?",
+                choices: "23 single chromatids/4 daughter cells with X chromosome/4 daughter cells with both X&Y chromosome/4 daughter cells with Y chromosome/23 sister chromatids",
+                answer: "23 single chromatids",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following is the event occurs before acrosome reaction?",
+                choices: "Rupture inner acrosomal membrane/Rupture of nuclear membrane/Rupture outer acrosomal membrane/Releasing of cortical granule/Nuclear condensation",
+                answer: "Repture outer acrosomal membrane",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is the similarity of meiosis 1 and meiosis 2 of oocytes?",
+                choices: "Unequal cytokinesis/Equal cytokinesis/Secondary and primary oocytes both are 23 sister chromatids/Secondary and primary oocytes both are 23 single chromatids/Secondary and primary oocytes both are 23 chromatids",
+                answer: "Secondary and primary oocytes both are 23 sister chromatids",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is the similar process found after completions of meiosis I and II in oogenesis?",
+                choices: "Presence of 23 single chromosomes in both first and second polar bodies/Egg activation/Conformational changes of ZP/Unequal cytokinesis of oocyte/Equal cytokinesis of oocyte",
+                answer: "Presence of 23 single chromosomes in both first and second polar bodies",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What are the characteristics of spermatogonia?",
+                choices: "Type A has 23 sister chromatids/Type B has 46 sister chromat/Type B develop from Type A/The largest compared to spermatogenic cell/Contains 22 sister chromatids",
+                answer: "Type B develop from Type A",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is correct about spermatogonia?",
+                choices: "Type B have 23 sister chromatids/Type B develop from Type A/The largest compared to spermatogenic cell/Contains 22 sister chromatids + 2 sex chromosomes/Type A has 23 sister chromatids",
+                answer: "Type B develop from Type A",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Nucleus of sperm and oocyte ไป fuse กันแล้วเป็นอะไร",
+                choices: "Zygote/Blastomere/Morula/Blastocyst/Trophoblast",
+                answer: "Zygote",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is the receptor of sperm that binds to the zona pellucida?",
+                choices: "ZP1/ZP2/ZP3/Pronucleus/Zona pellucida",
+                answer: "ZP3",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is the structure that is responsible for the sperm binding to the oocyte?",
+                choices: "Corona radiata/Zona pellucida/Cumulus oophorus/Granulosa cell/Corona radiata",
+                answer: "Zona pellucida",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following phases of MII separates the sister chromatids to form round spermatids?",
+                choices: "Early telophase II/Metaphase II/Anaphase II/Prophase II/Late telophase II",
+                answer: "Anaphase II",
+                select: "",
+                state: false
+            },
+            {
+                problem: "When the secondary oocyte separate chromatid to complete oogenesis?",
+                choices: "During ovulation/Sperm triggering/After fertilization/Just after ovulation/First formation of polar body",
+                answer: "After fertilization",
+                select: "",
+                state: false
+            },
+            {
+                problem: "When does the 23 sister chromatids of secondary oocyte separate to complete the oogenesis?",
+                choices: "During ovulation/Formation of Graafian follicle/Just after ovulation/After sperm triggering/First formation of polar body",
+                answer: "After fertilization",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Injection of single sperm into egg ooplasm is which of the following techniques?",
+                choices: "ZIFT/GIFT/IVF/ICSI/PGD",
+                answer: "ICSI",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Ca2+ releasing happens after which event?",
+                choices: "Sperm binding/Sperm capacitation/Zona penetration/Penetration of corona radiata/Spermatozoa enter ooplasm",
+                answer: "Spermatozoa enter ooplasm",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following produces decapacitated substance?",
+                choices: "Epididymis/Vas deferens/Prostate gland/Bulbourethral gland/Seminal vesicle",
+                answer: "Seminal vesicle", //????
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following is involved in the genetic diversity during meiotic division?",
+                choices: "Pachytene primary spermatocyte/Leptotene primary spermatocyte/Zygotene primary spermatocyte/Diplotene primary spermatocyte/Diakinesis primary spermatocyte",
+                answer: "Pachytene primary spermatocyte",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Patient surprised that she is pregnant. Her doctor checked her menstrual history and sexual activities. The doctor diagnosed That she is in 4th week of fertilization age.Which statement is correct about this stage",
+                choices: "Somite is not yet complete./Neurulation is nearly complete./Gastrulation is complete, resulting in 2 germ layers./Embryo is in a period of relative resistance to teratogen substance./Fetal membrane is formed.",
+                answer: "Somite is not yet complete.",
+                select: "",
+                state: false
+            },
+            {
+                problem: "When does fetal membrane form?",
+                choices: "4 weeks/5 weeks/6 weeks/7 weeks/8 weeks",
+                answer: "4 weeks",
+                select: "",
+                state: false
+            },
+            {
+                problem: "17-year-old woman was given a high dose of estrogen twice for 1 day to interrupt a possible pregnancy. Which of the following is the main reason?",
+                choices: "Inhibition of hCG production/Prevention of ovulation/Inhibition of mitotic cell division (cleavage)/Prevention of fertilization/Inhibition of implantation",
+                answer: "Inhibition of implantation",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following cells invades endometrial connective tissue?",
+                choices: "Epiblast/Hypoblast/Cytotrophoblast/Syncytiotrophoblast/Inner cell mass",
+                answer: "Syncytiotrophoblast",
+                select: "",
+                state: false
+            },
+            {
+                problem: "During the third week of embryonic development, the mesoderm becomes organized into separate tissue regions. Which of the following parts of mesoderm surrounds amnion?",
+                choices: "Visceral mesoderm/Splanchnic mesoderm/Somatic mesoderm/Paraxial mesoderm/Intermediate mesoderm",
+                answer: "Somatic mesoderm",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the followings forms embryonic endoderm?",
+                choices: "Epiblast/Hypoblast/Mesoblast/Cytotrophoblast/Mesenchyme",
+                answer: "Epiblast",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following adult structures develops from intermediate mesoderm?",
+                choices: "Body wall/Muscle/Axial skeleton/Dermis of skin/Urinary system",
+                answer: "Urinary system",
+                select: "",
+                state: false
+            },
+            {
+                problem: "A 35-year-old female visited her doctor because of a swelling in the right of her neck. Examination reveals congenital tissue anterior to the superior third of the sternomastoid muscle. A swelling is asymptomatic, non-painful, soft. Which most likely diagnosis?",
+                choices: "Bronchial cyst/Thyroglossal cyst/Thymic cyst/Thyroid cyst/Parathyroid cyst",
+                answer: "Bronchial cyst",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following adult system develop from endodermal?",
+                choices: "Circulatory system/Cranial nervous system/Peripheral nervous system/Respiratory system/Reproductive system",
+                answer: "Respiratory system",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of these in adult from ectoderm?",
+                choices: "Blood cell/Liver/Epidermis of skin/Kidney/Thymus",
+                answer: "Epidermis of skin",
+                select: "",
+                state: false
+            },
+            {
+                problem: "After the implantation of a blastocyst into endometrium. What does developmental process transform bilaminar into trilaminar embryonic discs?",
+                choices: "Blastulation/Implantation/Gastrulation/Decidualization/Cleavage",
+                answer: "Gastrulation",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What is the embryological origin of tongue?",
+                choices: "Pharyngeal arch 1/Pharyngeal arch 1 2 3/Pharyngeal arch 1 3 4/Pharyngeal arch 1 2 4/Pharyngeal arch 1 2 3 4",
+                answer: "Pharyngeal arch 1 2 3 4",
+                select: "",
+                state: false
+            },
+            {
+                //current
+                problem: "Which pharyngeal arch is responsible for upper and lower jaw development?",
+                choices: "Pharyngeal arch 1/Pharyngeal arch 2/Pharyngeal arch 3/Pharyngeal arch 4/Pharyngeal arch 6",
+                answer: "Pharyngeal arch 1",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following structure indicates the site of mouth and head region of the embryo?",
+                choices: "Cloacal plate/Prechordal plate/Amnion/Secondary yolk sac/Chorion",
+                answer: "Prechordal plate",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Abnormalities of the thymus, superior and inferior parathyroid glands are exhibited by infants suffering from DiGeorge syndrome. Which of the pharyngeal pouch(es) affect(s) these malformations?",
+                choices: "First/First and second/Second and third/Third/Third and fourth",
+                answer: "Third and fourth",
+                select: "",
+                state: false
+            },
+            {
+                problem: "A 52-year-old-female underwent thyroidectomy. After surgery, she had hoarse and difficult of speaking. What is the embryological of damage nerve that is most likely causing patient’s hoarseness?",
+                choices: "Pharyngeal arch 1/Pharyngeal arch 2/Pharyngeal arch 3/Pharyngeal arch 4/Pharyngeal arch 6",
+                answer: "Pharyngeal arch 6",
+                select: "",
+                state: false
+            },
+            {
+                problem: "A 17-year-old male is examined by doctor and the mass was found at the back of the patient’s tongue. The mass biopsy shows normal thyroid tissue. The presence of such tissue related to embryonic origin of which of the following structure?",
+                choices: "Tuberculum impar/Pharyngeal arch 2/Pharyngeal pouch 1/Sulcus terminalis/Foramen cecum",
+                answer: "Foramen cecum",
+                select: "",
+                state: false
+            },
+            {
+                problem: "The embryonic development of the pharyngeal part of the tongue is derived from which of the following?",
+                choices: "Median lingual swelling/Lateral lingual swelling/Epiglottal swelling/Tuberculum impar/Copula",
+                answer: "Copula",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following match correctly?",
+                choices: "Pharynx constrictor and 6th arch/Stylopharyngeus and 2nd arch/Tensor tympanic and 1st arch/Stapedius and 3rd arch/Vocalis and 4th arch",
+                answer: "Tensor tympanic and 1st arch",
+                select: "",
+                state: false
+            },
+            {
+                problem: "When does the blastocyst attach to the endometrial epithelium after fertilization.",
+                choices: "Day 2/Day 3/Day 4/Day 5/Day 6",
+                answer: "Day 6",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Neural pulposus developed from which of the following?",
+                choices: "Notochord/Somites/Intermediate mesoderm/Neural crest/Neural tube",
+                answer: "Notochord",
+                select: "",
+                state: false
+            },
+            {
+                problem: "The formation of what structure is the first indication of gastrulation?",
+                choices: "Neural crest/Notochordal process/Primitive steak/Epiblast/Connecting stalk",
+                answer: "Primitive steak",
+                select: "",
+                state: false
+            },
+            {
+                problem: "ตัวอ่อนอายุ 2 สัปดาห์สามารถรับสารอาหารผ่านจากอะไร",
+                choices: "connecting stalk/Yolk sac/Amnion/Lacuna/Intervillous space",
+                answer: "Lacuna",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following birth defects was discovered as the first evidence that congenital malformation could be caused by the environment factors?",
+                choices: "Facial defects linked to the trimethadione/Neural tube defects linked to the valproic acid/Gastroschisis linked to the opioids/Limb defects linked to the sedative thalidomide/Cleft lip linked to the Topamax",
+                answer: "Limb defects linked to the sedative thalidomide",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the followings is a potent teratogen that rapidly kills proliferating cells, producing virtually any type of birth defect depending upon the dose and the stage of development of the conceptus at the time of exposure?",
+                choices: "Pyrogens/Androgenic agents/Physical agents/Ionizing radiation/Infectious agents",
+                answer: "Ionizing radiation",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which length is a normal umbilical cord length?",
+                choices: "50 cm/100 cm/125 cm/25 cm/150 cm",
+                answer: "50 cm",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following weeks after fertilization does the mother most often feel fetal movement?",
+                choices: "Thirteen to sixteen weeks/Twenty-one to twenty-five weeks/Twenty-six to twenty-nine weeks/Nine to twelve weeks/Seventeen to twenty weeks",
+                answer: "Seventeen to twenty weeks",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following viral infections is infrequent and dependent on the timing of the infection as among infants born to women infected before 13 weeks gestation, 0.4% are malformed, whereas the risk increases to 2% among infants whose mothers are infected during 13 to 20 weeks of gestation?",
+                choices: "HIV/Rubella virus/Herpes simplex virus/Varicella virus/COVID-19",
+                answer: "Varicella virus",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following is the primitive structure of Meckel Diverticulum?",
+                choices: "yolk stalk/connecting stalk/chorion/urachus/amnion",
+                answer: "yolk stalk",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following procedures is used in the early diagnosis of abnormal pregnancies?",
+                choices: "Passive a polyethylene catheter through the cervix/Amniocentesis/Biopsies of trophoblastic tissue/Chorionic villi sampling/Ultrasonography",
+                answer: "Bioopsies of trophoblastic tissue",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which cell types of the placental villi that acts on the microembryonic phagocytosis to protect the vertical transmission?",
+                choices: "Endothelial cell/Fibroblast/Syncytiotrophoblast/Cytotrophoblast/Hofbauer’s cell",
+                answer: "Hofbauer’s cell",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the followings can cause masculinization of the female embryos?",
+                choices: "cigarette smoking/cocaine/androgenic agents/birth control pills/diethylstilbestrol",
+                answer: "androgenic agents",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following gestational ages is the most sensitive risk of birth defect being induced?",
+                choices: "13-20 weeks/26-30 weeks/9-15 weeks/3-8 weeks/21-25 weeks",
+                answer: "3-8 weeks",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the followings is directly contacted to the fetus to enable the free movement of the fetus?",
+                choices: "Amniotic fluid/Yolk sac/Amniochorionic membrane/Allantois/Intervillous space",
+                answer: "Amniotic fluid",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Twenty-day-male infant was observed to urinate emptying through his incomplete dried-up umbilicus. What is the primitive embryonic structure can cause congenital malformation and presents the symptom as in this case?",
+                choices: "Yolk stalk/Amnion/Chorion/Urachus/Yolk sac",
+                answer: "Urachus",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which prenatal development organ is particularly sensitive to the antidepressant drugs that work as selective serotonin reuptake inhibitors?",
+                choices: "teeth/eye/heart/ear/neural tube",
+                answer: "heart",
+                select: "",
+                state: false
+            },
+            {
+                problem: "What stage(s) of placental villi that blood-placental circulation occurs?",
+                choices: "Primary placental villi/Secondary placental villi/Tertiary placental villi/Primary & Secondary placental villi/Secondary & Tertiary placental villi",
+                answer: "Tertiary placental villi",
+                select: "",
+                state: false
+            },
+            {
+                problem: "How long that the placental stage of parturition is normally occurred?",
+                choices: "Within 20 minutes/Within 40 minutes/Within 50 minutes/Within 30 minutes/Within 10 minutes",
+                answer: "Within 10 minutes",
+                select: "",
+                state: false
+            },
+            {
+                problem: "In the seven to fourteen weeks after fertilization, which of the following measurements is commonly used to estimate fetal age?",
+                choices: "Biparietal diameter/Crown-Rump length/Head circumference/Abdominal circumference/Femur length",
+                answer: "Crown-Rump length",
+                select: "",
+                state: false
+            },
+            {
+                problem: "At 26 to 29 weeks of pregnancy, fetuses usually survive if they are born prematurely and given intensive care. What is the most likely associated?",
+                choices: "Brown fat has formed and produces heat by oxidation of fatty acids./Weight gain/The primary ossification center has appeared./The lungs and pulmonary vasculature have developed sufficiently to provide adequate gas exchange./Intestines have returned to the abdominal cavity.",
+                answer: "The lungs and pulmonary vasculature have developed sufficiently to provide adequate gas exchange.",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following anomalies are easily recognizable indicators of other defects and are observed in virtually in all children with syndromic malformations?",
+                choices: "Pigmented spots/Microtia/Syndactyly/Anencephaly/Short palpebral fissures",
+                answer: "Microtia",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which blood vessel carries low oxygenated bloods from to the embryo/fetus to the placenta?",
+                choices: "Umbilical vein/Uterine vein/Spiral artery/Uterine artery/Umbilical artery",
+                answer: "Umbilical artery",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which embryonic age that the fetal membranes start to develop?",
+                choices: "3-week-age/2-week-age/4-week-age/5-week-age/8-week-age",
+                answer: "2-week-age",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following biochemical markers is increased in maternal serum during the second trimester demonstrates the neural tube defects and several other abnormalities?",
+                choices: "Creatinine/Electrolyte/Blood sugar/Blood urea nitrogen/Alpha fetoprotein",
+                answer: "Alpha fetoprotein",
+                select: "",
+                state: false
+            },
+            {
+                problem: "A 29-year-old pregnant woman was diagnosed with IUGR caused by impaired uteroplacental and fetoplacental blood flow. Which of the followings is the most common factor?",
+                choices: "Severe maternal hypotension/Maternal use of marijuana and illicit drugs/Multiple pregnancy/Structural and numerical chromosomal abnormalities/Smoking mother",
+                answer: "Severe maternal hypotension",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the followings is a maternal portion of the placenta?",
+                choices: "Intervillous space/Placental villi/Placental septa/Chorionic plate/Placental cotyledon",
+                answer: "Placental septa",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the followings prenatal disturbances causes a high incidence of stillbirths, neonatal deaths, abnormally large infants, and congenital malformation?",
+                choices: "Mother with phenylketonuria/Mother with diabetes/Mother with hypoxia/Mother with obesity/Mother with nutritional deficiency",
+                answer: "Mother with diabetes",
+                select: "",
+                state: false
+            },
+            {
+                problem: "35-year-old woman has her last menstrual period on June 10, 2021. Which of the followings is the expected date of delivery?",
+                choices: "January 17, 2022/March 18, 2022/March 7, 2022/March 17, 2022/January 7, 2022",
+                answer: "March 17, 2022",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the followings is a group of anomalies?",
+                choices: "Disruption/Deformation/Syndrome/All of the above/Malformation",
+                answer: "Syndrome",
+                select: "",
+                state: false
+            },
+            {
+                problem: "A full term pregnant woman admitted for the normal labor. During parturition, the dilation and expulsion stages normally occurred. However, the placental stage was prolonged. Which of the followings is the most likely cause?",
+                choices: "Abruptio placenta/Placenta previa/Circumvallate placenta/Placenta increta/Battledore placenta",
+                answer: "Placenta increta",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which amount of the amniotic fluid at the full-term pregnancy is a starting point that can be diagnosed as polyhydramnios?",
+                choices: "> 500 ml/> 2500 ml/> 2000 ml/> 1500 ml/> 1000 ml",
+                answer: "> 2000 ml",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which is teratogenic to infants born to mothers with first trimester exposures typically have skeletal abnormalities?",
+                choices: "Anticoagulant warfarin/Industrial solvents/Organic mercury/ACE inhibitor/Alcohol",
+                answer: "Anticoagulant warfarin",
+                select: "",
+                state: false
+            },
+            {
+                problem: "Which of the following congenital malformations are caused by elevated external sources of maternal body temperature, such as hot tubs and saunas?",
+                choices: "Heart defects/Skeleton defects/Urinary tract defects/Lung defects/Neural tube defects",
+                answer: "Neural tube defects",
+                select: "",
+                state: false
+            }
+        ]
         var questions50 = [
             {
                 problem: "Which of the following cells is found in immature testis?",
@@ -217,7 +768,7 @@
             },
             {
                 problem: "What is the important function of golgi body in round spermatid?",
-                choices: "To form acrosome/To form centriole/To form flagellum/To form nucleus/To form mitochondria",
+                choices: "-/-/- /To form acrosome/-",
                 answer: "To form acrosome",
                 select: "",
                 state: false
@@ -322,7 +873,7 @@
             },
             {
                 problem: "A 18-year-old went to hospital with severe abdominal pain. Diagnosis is ectopic pregnancy. Where is it?",
-                choices: "Ampulla/Fimbriae/Isthmus/Infundibulum/Interstitium",
+                choices: "-/-/- /Ampulla/-",
                 answer: "Ampulla",
                 select: "",
                 state: false
@@ -350,7 +901,7 @@
             },
             {
                 problem: "Which structure is an indication of the anus?",
-                choices: "Cloacal membrane/Primitive streak/Primitive node/Primitive pit/Primitive groove",
+                choices: "The cloacal membrane/The cloacal cavity/The cloacal duct/The cloacal plate/The cloacal fold",
                 answer: "The cloacal membrane",
                 select: "",
                 state: false
@@ -511,7 +1062,7 @@
             },
             {
                 problem: "Which of the following structures can be found in the 5th week of embryo?",
-                choices: "Blood flow/Optic pits  /Pharyngeal arch  /Mesonephric kidney  /External acoustic meatus",
+                choices: "Blood flow/Optic pits/Pharyngeal arch/Mesonephric kidney/External acoustic meatus",
                 answer: "Mesonephric kidney",
                 select: "",
                 state: false
@@ -532,7 +1083,7 @@
             },
             {
                 problem: "A 24-year old woman has her last menstrual period on January, 2, 2022. Her menstrual period is 28 days. Which of the followings is the expected date of delivery?",
-                choices: "September 9,2022/August 4,2022/July 7,2022/October 9,2022  /December 9,2022",
+                choices: "September 9,2022/August 4,2022/July 7,2022/October 9,2022/December 9,2022",
                 answer: "October 9,2022",
                 select: "",
                 state: false
@@ -684,12 +1235,12 @@
                 select: "",
                 state: false
             }
-        ];
+        ]
         var questions51 = [
             {
                 problem: "Which of the following oocyte structures can be found within all stages of ovarian follicles?",
                 choices: "First polar body/Cortical Granule/Antrum/Zona pellucida/Germinal Vesicle",
-                answer: "Germinial Vesicle",
+                answer: "Germinal Vesicle",
                 select: "",
                 state: false
             },
@@ -710,7 +1261,7 @@
             {
                 problem: "What is the oocyte structure that can be found in all stages of the follicle oocyte?",
                 choices: "Polar body/Zona pellucida/Antrum/Cortical granule/Germinal Vesicle",
-                answer: "Germinial Vesicle",
+                answer: "Germinal Vesicle",
                 select: "",
                 state: false
             },
@@ -787,7 +1338,7 @@
             {
                 problem: "A 16-year-old woman was given a high dose of estrogen twice a day to interrupt possible pregnancy. Which of the following is the main reason?",
                 choices: "Prevention of fertilization/Prevention of ovulation/Inhibition of HCG production/Inhibition of cleavage/Inhibition of implantation",
-                answer: "Prevention of implantation",
+                answer: "Inhibition of implantation",
                 select: "",
                 state: false
             },
@@ -1059,7 +1610,7 @@
             },
             {
                 problem: "A 20-year-old woman has her last menstrual period on January 2, 2023. Her menstrual cycle is 28 days. Which of the following is the expected date of normal delivery?",
-                choices: "August 9, 2023  /September 9, 2023  /October 9, 2023/November 9, 2023/December 9, 2023",
+                choices: "August 9, 2023/September 9, 2023/October 9, 2023/November 9, 2023/December 9, 2023",
                 answer: "October 9, 2023",
                 select: "",
                 state: false
@@ -1205,10 +1756,11 @@
                 state: false
             }
         ]
-        var questions = questions50.concat(questions51);
+        var questions = questions49.concat(questions50).concat(questions51);
         var random_question = questions.sort(() => Math.random() - 0.5);
         var questionIndex = 0;
         var current_question = {};
+        var score = 0;
 
         function nextquestion() {
             if (questionIndex < random_question.length - 1) {
@@ -1279,6 +1831,8 @@
             random_question[questionIndex].select = selected;
             random_question[questionIndex].state = true;
             if (selected === current_question.answer) {
+                score++;
+                $("#score").text("Score: " + score + "/" + random_question.length);
                 $("#feedback").addClass("correct");
                 $("#feedback").text("Correct! : " + " " + current_question.answer);
             } else {
@@ -1286,6 +1840,7 @@
                 $("#feedback").addClass("incorrect");
             }
         }
+
 
         $("#choices").on("click", "button", function () {
             $(this).addClass("selected").siblings().removeClass("selected");
@@ -1320,7 +1875,7 @@
     <div class="row">
         <div id="quiz-container" class="center-column">
             <!-- show questionindex -->
-            <h1>Random Quiz ตอนนี้อยู่ข้อ <span id="questionIndex"></span> </h1>
+            <h1>Random Quiz ตอนนี้อยู่ข้อ <span id="questionIndex"></span> <span id="score"></span> </h1>
             <p id="question"></p>
             <div id="choices"></div>
             <button id="submit-btn">Submit Answer</button>
@@ -1330,7 +1885,7 @@
                 <button id="next-question">Next Question</button>
             </div>
             <!-- หมายเหตุ -->
-            <div class="small">ref. mdkkudatabase</div>
+            <!-- <div class="small">ref. mdkkudatabase</div> -->
         </div>
         <!-- create table to show the submission -->
         <table>
