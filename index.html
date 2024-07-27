@@ -269,7 +269,7 @@
             {
                 problem: "What is the similar process found after completions of meiosis I and II in oogenesis?",
                 choices: "Presence of 23 single chromosomes in both first and second polar bodies/Egg activation/Conformational changes of ZP/Unequal cytokinesis of oocyte/Equal cytokinesis of oocyte",
-                answer: "Presence of 23 single chromosomes in both first and second polar bodies",
+                answer: "Unequal cytokinesis of oocyte",
                 select: "",
                 state: false
             },
@@ -324,7 +324,7 @@
             },
             {
                 problem: "When does the 23 sister chromatids of secondary oocyte separate to complete the oogenesis?",
-                choices: "During ovulation/Formation of Graafian follicle/Just after ovulation/After sperm triggering/First formation of polar body",
+                choices: "After fertilization/Just after ovulation/During ovulation/First formation of polar body/Sperm triggering",
                 answer: "After fertilization",
                 select: "",
                 state: false
@@ -768,7 +768,7 @@
             },
             {
                 problem: "What is the important function of golgi body in round spermatid?",
-                choices: "-/-/- /To form acrosome/-",
+                choices: "To form acrosome/To form flagellum/To form mitochondria/To form centriole/To form nucleus",
                 answer: "To form acrosome",
                 select: "",
                 state: false
@@ -873,7 +873,7 @@
             },
             {
                 problem: "A 18-year-old went to hospital with severe abdominal pain. Diagnosis is ectopic pregnancy. Where is it?",
-                choices: "-/-/- /Ampulla/-",
+                choices: "Ampulla/Isthmus/Fimbriae/Infundibulum/Fundus",
                 answer: "Ampulla",
                 select: "",
                 state: false
@@ -950,7 +950,7 @@
             },
             {
                 problem: "What develops into nucleus pulposus?",
-                choices: "Notochord/Neural plate/Prechordal plate/-/Extraembryonic mesoderm",
+                choices: "Notochord/Neural plate/Prechordal plate/Neural crest/Neural tube",
                 answer: "Notochord",
                 select: "",
                 state: false
@@ -1132,7 +1132,7 @@
             },
             {
                 problem: "A 34-years old pregnant woman was vaginal bleeding and ultrasound found villi invade the uterine serosa. Which is type of abnormal placenta?",
-                choices: "Placenta previa/Placenta accreta/Placenta increta/Placenta percreta/-",
+                choices: "Placenta previa/Placenta accreta/Placenta increta/Placenta percreta/Placenta membranacea",
                 answer: "Placenta percreta",
                 select: "",
                 state: false
@@ -1302,7 +1302,7 @@
             },
             {
                 problem: "Which structure contributes to acrosome biogenesis?",
-                choices: "Lysosome/SER/SER/Golgi apparatus/Mitochondria",
+                choices: "Lysosome/SER/Golgi apparatus/RER/Mitochondria",
                 answer: "Golgi apparatus",
                 select: "",
                 state: false
@@ -1756,6 +1756,7 @@
                 state: false
             }
         ]
+
         var questions = questions49.concat(questions50).concat(questions51);
         var random_question = questions.sort(() => Math.random() - 0.5);
         var questionIndex = 0;
